@@ -1,0 +1,51 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage[hidelinks]{hyperref}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+
+\title{Avance Preliminar: Proyecto Teórico}
+\author{Mateo Rubio Hernández}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Este documento presenta una revisión preliminar de los conceptos transversales del Mezclado de Cuatro Ondas (FWM) en medios atómicos, con un énfasis particular en el modelado teórico de la competencia entre este proceso no lineal y la Emisión Espontánea Amplificada (ASE). Se estudian las configuraciones de los niveles de energía, las ecuaciones de matriz de densidad y el fenómeno de interferencia cuántica destructiva que rige la supresión de la población en niveles excitados.
+\end{abstract}
+
+\section{Introducción al Mezclado de Cuatro Ondas (FWM)}
+El Mezclado de Cuatro Ondas (FWM, por sus siglas en inglés) es un proceso óptico no lineal de tercer orden en el cual tres campos electromagnéticos interactúan dentro de un medio no lineal para generar un cuarto campo. Este fenómeno está regido por la susceptibilidad no lineal de tercer orden del medio ($\chi^{(3)}$) y requiere el cumplimiento simultáneo de la conservación de la energía y del momento (condición de ajuste de fase o \textit{phase-matching}) \cite{Becerra2008}.
+
+Físicamente, la interacción de los campos incidentes induce una polarización macroscópica no lineal en el medio que oscila y actúa como fuente para la nueva onda electromagnética. Para modelar esta interacción luz-materia a nivel atómico, se emplean las ecuaciones ópticas de Bloch y el formalismo de la matriz de densidad, el cual permite estudiar la evolución temporal de las coherencias y las poblaciones atómicas considerando efectos como la desintonía, la relajación transversal y el decaimiento espontáneo \cite{Documento2025}.
+
+
+\section{El Caso Especial: Competencia entre ASE y FWM}
+Uno de los fenómenos más notables de la dinámica no lineal es la competencia entre procesos ópticos. En su trabajo fundamental, Boyd et al. (1987) estudiaron la excitación resonante de dos fotones del nivel 3d en un átomo de sodio y observaron una fuerte competencia entre la Emisión Espontánea Amplificada (ASE) y el proceso de FWM paramétrico \cite{Boyd1987}.
+
+
+
+A pesar de que los cálculos de ganancia independiente predicen que la ASE debería dominar abrumadoramente, experimentalmente se observa que el FWM es capaz de suprimir completamente la ocurrencia de la ASE. El análisis perturbativo de la matriz de densidad revela la física subyacente de esta supresión:
+
+\begin{enumerate}
+    \item \textbf{Múltiples Caminos de Excitación:} La coherencia de segundo orden ($\rho_{ca}^{(2)}$) entre el estado fundamental y el nivel superior excitado no solo es impulsada por el láser de bombeo aplicado (transición directa de dos fotones), sino también por los campos internamente generados por el propio proceso de FWM.
+    \item \textbf{Interferencia Cuántica Destructiva:} La ecuación que describe la población del nivel superior ($\rho_{cc}^{(4)}$) depende del módulo al cuadrado de esta coherencia. Los dos caminos de excitación (el láser aplicado y los campos del FWM) producen una interferencia matemáticamente explícita (término cruzado). Bajo condiciones macroscópicas y acoplamiento de fase adecuado dictado por las ecuaciones de amplitud acopladas (Maxwell), las fases relativas de los campos evolucionan de manera que este término de interferencia se vuelve perfectamente negativo \cite{Boyd1987}.
+    \item \textbf{Supresión de Población:} Esta interferencia destructiva cancela la coherencia y anula la transferencia de población al nivel superior. Sin átomos en el estado excitado, no puede existir inversión de población y, por tanto, se suprime por completo el mecanismo que origina la emisión espontánea amplificada (ASE).
+\end{enumerate}
+
+\section{Conclusión}
+El Mezclado de Cuatro Ondas es más que un simple mecanismo de conversión de frecuencia; la generación interna de campos produce trayectorias de excitación concurrentes que inducen efectos de coherencia cuántica. Entender a profundidad estas ecuaciones de matriz de densidad acopladas a la propagación electromagnética (Maxwell-Bloch) no solo explica fenómenos de cancelación como la supresión de la ASE \cite{Boyd1987}, sino que fundamenta tecnologías actuales como la generación de pares de fotones entrelazados \cite{Park2018, Park2019}.
+
+\bibliographystyle{unsrt}
+\bibliography{referencias_fwm}
+
+\end{document}
