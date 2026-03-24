@@ -24,28 +24,154 @@ Este documento presenta una revisión preliminar de los conceptos transversales 
 \end{abstract}
 
 \section{Introducción al Mezclado de Cuatro Ondas (FWM)}
-El Mezclado de Cuatro Ondas (FWM, por sus siglas en inglés) es un proceso óptico no lineal de tercer orden en el cual tres campos electromagnéticos interactúan dentro de un medio no lineal para generar un cuarto campo. Este fenómeno está regido por la susceptibilidad no lineal de tercer orden del medio ($\chi^{(3)}$) y requiere el cumplimiento simultáneo de la conservación de la energía y del momento (condición de ajuste de fase o \textit{phase-matching}) \cite{Becerra2008}.
+El Mezclado de Cuatro Ondas (FWM, por sus siglas en inglés) es un proceso óptico no lineal de tercer orden en el cual tres campos electromagnéticos interactúan dentro de un medio no lineal para generar un cuarto campo. Este fenómeno está regido por la susceptibilidad no lineal de tercer orden del medio $\chi^{(3)}$ y requiere el cumplimiento simultáneo de la conservación de la energía y del momento (condición de ajuste de fase o \textit{phase-matching}) \cite{Becerra2008}.
 
 Físicamente, la interacción de los campos incidentes induce una polarización macroscópica no lineal en el medio que oscila y actúa como fuente para la nueva onda electromagnética. Para modelar esta interacción luz-materia a nivel atómico, se emplean las ecuaciones ópticas de Bloch y el formalismo de la matriz de densidad, el cual permite estudiar la evolución temporal de las coherencias y las poblaciones atómicas considerando efectos como la desintonía, la relajación transversal y el decaimiento espontáneo \cite{Documento2025}.
 
-
 \section{El Caso Especial: Competencia entre ASE y FWM}
-Uno de los fenómenos más notables de la dinámica no lineal es la competencia entre procesos ópticos. En su trabajo fundamental, Boyd et al. (1987) estudiaron la excitación resonante de dos fotones del nivel 3d en un átomo de sodio y observaron una fuerte competencia entre la Emisión Espontánea Amplificada (ASE) y el proceso de FWM paramétrico \cite{Boyd1987}.
+Uno de los fenómenos más notables de la dinámica no lineal es la competencia 
+entre procesos ópticos. En el trabajo de Boyd et al. (1987) se estudia la excitación 
+por medio de la absorción de dos fotones del nivel 3d en un átomo de sodio y 
+observaron una fuerte competencia entre la ASE y el proceso de FWM paramétrico \cite{Boyd1987}.
 
+A simple vista, los cálculos teóricos de ganancia independiente sugieren que la ASE 
+debería ser el proceso dominante de forma abrumadora en el medio. Sin embargo, las observaciones 
+experimentales muestran que el proceso de FWM es capaz de suprimir por completo la aparición de
+la ASE.
 
+El análisis teórico que realiza Boyd et al. (1987) muestra que la clave de esta supresión 
+radica en la dinámica de la coherencia de segundo orden $\rho_{ca}^{(2)}$, la cual acopla 
+el estado fundamental con el nivel superior excitado. Físicamente, esta coherencia no 
+es impulsada de manera exclusiva por el láser de bombeo aplicado a través de una 
+transición directa de dos fotones. A medida que la luz interactúa con el medio,
+los propios campos electromagnéticos generados internamente por el proceso de 
+FWM establecen un segundo camino de excitación simultáneo. 
 
-A pesar de que los cálculos de ganancia independiente predicen que la ASE debería dominar abrumadoramente, experimentalmente se observa que el FWM es capaz de suprimir completamente la ocurrencia de la ASE. El análisis perturbativo de la matriz de densidad revela la física subyacente de esta supresión:
+La existencia de estas dos vías paralelas tiene consecuencias profundas en la población final del nivel excitado $\rho_{cc}^{(4)}$, puesto que esta depende matemáticamente del módulo al cuadrado de la coherencia total. Al elevar al cuadrado la suma de ambos caminos (el láser aplicado y los campos del FWM), surge de forma explícita un término cruzado de interferencia cuántica. Es en este punto donde la propagación macroscópica se vuelve fundamental: guiadas por el acoplamiento de fase y las ecuaciones de amplitud acopladas de Maxwell, las fases relativas de los campos evolucionan a lo largo del medio de tal manera que este término de interferencia se vuelve perfectamente negativo \cite{Boyd1987}.
 
-\begin{enumerate}
-    \item \textbf{Múltiples Caminos de Excitación:} La coherencia de segundo orden ($\rho_{ca}^{(2)}$) entre el estado fundamental y el nivel superior excitado no solo es impulsada por el láser de bombeo aplicado (transición directa de dos fotones), sino también por los campos internamente generados por el propio proceso de FWM.
-    \item \textbf{Interferencia Cuántica Destructiva:} La ecuación que describe la población del nivel superior ($\rho_{cc}^{(4)}$) depende del módulo al cuadrado de esta coherencia. Los dos caminos de excitación (el láser aplicado y los campos del FWM) producen una interferencia matemáticamente explícita (término cruzado). Bajo condiciones macroscópicas y acoplamiento de fase adecuado dictado por las ecuaciones de amplitud acopladas (Maxwell), las fases relativas de los campos evolucionan de manera que este término de interferencia se vuelve perfectamente negativo \cite{Boyd1987}.
-    \item \textbf{Supresión de Población:} Esta interferencia destructiva cancela la coherencia y anula la transferencia de población al nivel superior. Sin átomos en el estado excitado, no puede existir inversión de población y, por tanto, se suprime por completo el mecanismo que origina la emisión espontánea amplificada (ASE).
-\end{enumerate}
+Como resultado directo de esta evolución espacial, se produce una interferencia destructiva perfecta que cancela la coherencia neta del sistema, anulando así la transferencia de población hacia el nivel superior. Al bloquearse el ascenso de los átomos hacia el estado excitado, se imposibilita la creación de cualquier inversión de población. En consecuencia, al carecer de átomos disponibles en el nivel superior, el mecanismo físico primario que da origen a la ASE queda totalmente suprimido.
 
-\section{Conclusión}
-El Mezclado de Cuatro Ondas es más que un simple mecanismo de conversión de frecuencia; la generación interna de campos produce trayectorias de excitación concurrentes que inducen efectos de coherencia cuántica. Entender a profundidad estas ecuaciones de matriz de densidad acopladas a la propagación electromagnética (Maxwell-Bloch) no solo explica fenómenos de cancelación como la supresión de la ASE \cite{Boyd1987}, sino que fundamenta tecnologías actuales como la generación de pares de fotones entrelazados \cite{Park2018, Park2019}.
+La coherencia de segundo orden $\rho_{ca}^{(2)}$ entre el estado fundamental y el nivel superior excitado no solo es impulsada por el láser de bombeo aplicado (transición directa de dos fotones), sino también por los campos internamente generados por el propio proceso de FWM.
+La ecuación que describe la población del nivel superior ($\rho_{cc}^{(4)}$) depende del módulo al cuadrado de esta coherencia. Los dos caminos de excitación (el láser aplicado y los campos del FWM) producen una interferencia matemáticamente explícita (término cruzado). Bajo condiciones macroscópicas y acoplamiento de fase adecuado dictado por las ecuaciones de amplitud acopladas (Maxwell), las fases relativas de los campos evolucionan de manera que este término de interferencia se vuelve perfectamente negativo \cite{Boyd1987}.
+Esta interferencia destructiva cancela la coherencia y anula la transferencia de población al nivel superior. Sin átomos en el estado excitado, no puede existir inversión de población y, por tanto, se suprime por completo el mecanismo que origina la ASE.
 
 \bibliographystyle{unsrt}
 \bibliography{referencias_fwm}
+
+\newpage
+\appendix
+\section{Anexo: Soluciones Perturbativas de la Matriz de Densidad}
+
+En este anexo se presentan las expresiones analíticas detalladas por Boyd et al. (1987) para los elementos de la matriz de densidad, calculadas mediante la teoría de perturbaciones. Estas ecuaciones describen la evolución de un sistema atómico de tres niveles bajo la aproximación de onda rotatoria (RWA) y asumiendo un estado estacionario.
+
+\subsection*{Orden Cero: Condición Inicial}
+Antes de la interacción con los campos ópticos, se asume que toda la población atómica reside en el estado fundamental $a$, y que no existen coherencias previas en el sistema:
+
+\begin{equation}
+\rho_{aa}^{(0)} = 1 \tag{1a}
+\end{equation}
+\begin{equation}
+\rho_{lm}^{(0)} = 0 \quad (\text{para } l \neq m \text{ y para } l = m \neq a) \tag{1b}
+\end{equation}
+
+\subsection*{Primer Orden: Absorción Lineal}
+El primer orden de perturbación representa la interacción de un solo fotón. Crea una coherencia entre el estado fundamental $a$ y el nivel intermedio $b$, lo que da origen a la polarización lineal del medio:
+
+\begin{equation}
+\rho_{ba}^{(1)} = \frac{\mu_{ba}}{\hbar} \left[ \frac{\tilde{E}_1 e^{-i\omega_1 t}}{\Delta_1 - i\Gamma_{ba}} + \frac{\tilde{E}_2 e^{-i\omega_2 t}}{2\Delta_1 - \Delta_3 - i\Gamma_{ba}} + \frac{\tilde{E}_3 e^{-i\omega_3 t}}{\Delta_3 - i\Gamma_{ba}} \right] \tag{2}
+\end{equation}
+
+\begin{itemize}
+    \item $\mu_{ba}$ es el elemento de matriz del momento dipolar eléctrico de la transición $a \leftrightarrow b$. Junto con la amplitud del campo eléctrico incidente, define la frecuencia de Rabi de la interacción, parametrizando la fuerza del acoplamiento luz-materia.
+    
+    \item $\Delta_1$ y $\Delta_3$ son las desintonías ópticas de los campos $\omega_1$ y $\omega_3$ respectivamente. Se definen como la diferencia entre la frecuencia de transición atómica pura y la frecuencia del láser incidente (ej. $\Delta_1 = \omega_{ba} - \omega_1$). 
+    
+    \item $2\Delta_1 - \Delta_3$ es la desintonía efectiva que experimenta el campo generado $\omega_2$. Esta combinación lineal de desintonías surge de la conservación de energía del proceso que impone que la frecuencia del nuevo campo debe ser $\omega_2 = 2\omega_1 - \omega_3$.
+    
+    \item $\Gamma_{ba}$ representa la tasa de relajación transversal a la cual se destruye la coherencia cuántica entre los niveles $a$ y $b$.
+\end{itemize}
+
+\subsection*{Segundo Orden: Coherencia de Dos Fotones}
+
+Al incorporar una segunda interacción electromagnética, se establece una coherencia entre el estado fundamental $a$ y el estado superior $c$.
+ 
+\begin{equation}
+\begin{aligned}
+\rho_{ca}^{(2)} &= \frac{\mu_{cb}\mu_{ba}}{\hbar^2} \left[ \frac{\tilde{E}_1^2 e^{-i2\omega_1 t}}{(\Delta_1 - i\Gamma_{ba})(\Delta_2 - i\Gamma_{ca})} \right. \\
+&\quad + \frac{\tilde{E}_2\tilde{E}_3 e^{-i(\omega_2+\omega_3)t}}{(2\Delta_1 - \Delta_3 - i\Gamma_{ba})(\Delta_2 - i\Gamma_{ca})} \\
+&\quad \left. + \frac{\tilde{E}_2\tilde{E}_3 e^{-i(\omega_2+\omega_3)t}}{(\Delta_3 - i\Gamma_{ba})(\Delta_2 - i\Gamma_{ca})} \right]
+\end{aligned} \tag{3}
+\end{equation}
+
+\begin{itemize} 
+    \item Los numeradores $\tilde{E}_1^2$ y $\tilde{E}_2\tilde{E}_3$ evidencian la existencia de múltiples caminos de excitación cuántica hacia el mismo estado final $c$. El primer término ($\propto \tilde{E}_1^2$) muestra la absorción de dos fotones idénticos del láser de bombeo. En contraste, los términos con $\tilde{E}_2\tilde{E}_3$ representan la absorción de los dos nuevos campos generados internamente por el medio.
+    
+    \item $\Delta_2$ es la desintonía de dos fotones. De forma analoga a $\Delta_1$ o $\Delta_3$ esta se define como $\Delta_2 = 2\omega_1 - \omega_{ac} $
+
+\end{itemize}
+
+\subsection*{Tercer Orden: Polarización No Lineal (FWM)}
+Las coherencias de tercer orden son el núcleo del FWM. Representan tres interacciones con los campos ópticos y son directamente proporcionales a la polarización macroscópica no lineal $P^{(3)}(\omega)$.
+
+\begin{equation}
+\begin{aligned}
+\rho_{cb}^{(3)} &= -\frac{|\mu_{ba}|^2 \mu_{cb}}{(\Delta_2 - i\Gamma_{ca})\hbar^3} \left[ \frac{|\tilde{E}_1|^2 \tilde{E}_1 e^{-i\omega_1 t}}{(\Delta_1 - i\Gamma_{ba})(\Delta_2 - \Delta_1 - i\Gamma_{cb})} \right. \\
+&\quad + \frac{\tilde{E}_1^2 \tilde{E}_2^* e^{-i\omega_3 t}}{(\Delta_1 - i\Gamma_{ba})(\Delta_2 + \Delta_3 - 2\Delta_1 - i\Gamma_{cb})} + \frac{\tilde{E}_1^2 \tilde{E}_3^* e^{-i\omega_2 t}}{(\Delta_1 - i\Gamma_{ba})(\Delta_2 - \Delta_3 - i\Gamma_{cb})} \\
+&\quad + \frac{\tilde{E}_2 \tilde{E}_3 \tilde{E}_1^* e^{-i\omega_1 t}}{(2\Delta_1 - \Delta_3 - i\Gamma_{ba})(\Delta_2 - \Delta_1 - i\Gamma_{cb})} + \frac{|\tilde{E}_2|^2 \tilde{E}_3 e^{-i\omega_3 t}}{(2\Delta_1 - \Delta_3 - i\Gamma_{ba})(\Delta_2 + \Delta_3 - 2\Delta_1 - i\Gamma_{cb})} \\
+&\quad + \frac{|\tilde{E}_3|^2 \tilde{E}_2 e^{-i\omega_2 t}}{(2\Delta_1 - \Delta_3 - i\Gamma_{ba})(\Delta_2 - \Delta_3 - i\Gamma_{cb})} + \frac{\tilde{E}_3 \tilde{E}_2 \tilde{E}_1^* e^{-i\omega_1 t}}{(\Delta_3 - i\Gamma_{ba})(\Delta_2 - \Delta_1 - i\Gamma_{cb})} \\
+&\quad \left. + \frac{|\tilde{E}_2|^2 \tilde{E}_3 e^{-i\omega_3 t}}{(\Delta_3 - i\Gamma_{ba})(\Delta_2 + \Delta_3 - 2\Delta_1 - i\Gamma_{cb})} + \frac{|\tilde{E}_3|^2 \tilde{E}_2 e^{-i\omega_2 t}}{(\Delta_3 - i\Gamma_{ba})(\Delta_2 - \Delta_3 - i\Gamma_{cb})} \right]
+\end{aligned} \tag{4a}
+\end{equation}
+
+ Esta ecuación surge de la aplicación iterativa de la teoría de perturbaciones: el tercer orden se construye al forzar a la coherencia de segundo orden $\rho_{ca}^{(2)}$ a interactuar nuevamente con los campos electromagnéticos. Esta expresión se puede desglosar analizando las siguientes características:
+
+\begin{itemize}
+    \item Fuera de los corchetes se encuentra un factor que contiene a $\Delta_2 - i\Gamma_{ca}$ en el denominador. Este término está presente escalando a todas las fracciones de la ecuación debido a que representa una condición compartida por todos los caminos de excitación: el sistema atómico debió transitar forzosamente por la coherencia de dos fotones $\rho_{ca}^{(2)}$. 
+    
+    \item Dentro del corchete, los denominadores están formados por el producto de dos agrupaciones que llevan el historial de desintonías de las interacciones previas. El primer factor $(\text{ej. }\Delta_1 - i\Gamma_{ba})$, corresponde al rastro de la primera interacción electromagnética. El segundo factor introduce combinaciones lineales de desintonías $(\text{ej. }\Delta_2 - \Delta_1 - i\Gamma_{cb})$. Físicamente, esta diferencia de desintonías establece la resonancia exacta de la nueva coherencia generada entre el nivel superior y el intermedio.
+    
+    \item Las expresiones en los numeradores, tales como $|\tilde{E}_1|^2 \tilde{E}_1$ o $\tilde{E}_1^* \tilde{E}_2 \tilde{E}_3$, constituyen el registro de las tres interacciones electromagnéticas específicas que participaron en un camino de excitación particular.
+\end{itemize}
+
+En la ecuación anterior, la tercera interacción operaba sobre el estado fundamental para generar una coherencia entre los niveles superior e intermedio. Sin embargo, hay otra interacción que induce un descenso estimulado desde el nivel superior $c$ hacia el nivel intermedio $b$, dejando al sistema en una coherencia entre el estado intermedio y el fundamental $\rho_{ba}^{(3)}$, cantidad que esta dada por: 
+
+\begin{equation}
+\begin{aligned}
+\rho_{ba}^{(3)} &= \frac{|\mu_{cb}|^2 \mu_{ba}}{(\Delta_2 - i\Gamma_{ca})\hbar^3} \left[ \frac{|\tilde{E}_1|^2 \tilde{E}_1 e^{-i\omega_1 t}}{(\Delta_1 - i\Gamma_{ba})^2} + \frac{\tilde{E}_1^2 \tilde{E}_2^* e^{-i\omega_3 t}}{(\Delta_1 - i\Gamma_{ba})(\Delta_3 - i\Gamma_{ba})} \right. \\
+&\quad + \frac{\tilde{E}_1^2 \tilde{E}_3^* e^{-i\omega_2 t}}{(\Delta_1 - i\Gamma_{ba})(2\Delta_1 - \Delta_3 - i\Gamma_{ba})} + \frac{\tilde{E}_2 \tilde{E}_3 \tilde{E}_1^* e^{-i\omega_1 t}}{(2\Delta_1 - \Delta_3 - i\Gamma_{ba})(\Delta_1 - i\Gamma_{ba})} \\
+&\quad + \frac{|\tilde{E}_2|^2 \tilde{E}_3 e^{-i\omega_3 t}}{(2\Delta_1 - \Delta_3 - i\Gamma_{ba})(\Delta_3 - i\Gamma_{ba})} + \frac{|\tilde{E}_3|^2 \tilde{E}_2 e^{-i\omega_2 t}}{(2\Delta_1 - \Delta_3 - i\Gamma_{ba})^2} \\
+&\quad + \frac{\tilde{E}_3 \tilde{E}_2 \tilde{E}_1^* e^{-i\omega_1 t}}{(\Delta_3 - i\Gamma_{ba})(\Delta_1 - i\Gamma_{ba})} + \frac{|\tilde{E}_2|^2 \tilde{E}_3 e^{-i\omega_3 t}}{(\Delta_3 - i\Gamma_{ba})^2} \\
+&\quad \left. + \frac{|\tilde{E}_3|^2 \tilde{E}_2 e^{-i\omega_2 t}}{(\Delta_3 - i\Gamma_{ba})(2\Delta_1 - \Delta_3 - i\Gamma_{cb})} \right]
+\end{aligned} \tag{4b}
+\end{equation}
+
+Este cambio de trayectoria explica la aparición de denominadores al cuadrado, por ejemplo: $(\Delta_1 - i\Gamma_{ba})^2$. El sistema atómico experimenta exactamente la misma desintonía óptica en dos momentos distintos del proceso perturbativo de tres pasos. Por ejemplo, el sistema absorbe un primer fotón acumulando un error de energía asociado al estado intermedio $b$, luego absorbe un segundo fotón hacia el estado $c$, y finalmente interactúa con un tercer campo que induce una transición de regreso a la misma configuración de energía virtual asociada al estado $b$. Al registrar esta misma penalización de desintonía en el primer y en el tercer paso, el producto en el denominador genera matemáticamente el término cuadrático.
+
+\subsection*{Cuarto Orden: Población del Nivel Superior y Cancelación}
+Finalmente, la población transferida al nivel excitado $c$ se describe como un proceso de cuarto orden. En la Ecuación (5) donde se hace explícito el fenómeno de interferencia cuántica. Los términos proporcionales a $|\tilde{E}_1|^4$ y a $|\tilde{E}_2|^2|\tilde{E}_3|^2$ representan las contribuciones independientes de los caminos de excitación, mientras que los términos que combinan $\tilde{E}_1$ con $\tilde{E}_2$ y $\tilde{E}_3$ representan la interferencia cruzada. 
+
+Bajo las condiciones adecuadas de acoplamiento de fase, este término cruzado cancela los términos directos, llevando la población $\rho_{cc}^{(4)}$ a cero y suprimiendo así la Emisión Espontánea Amplificada (ASE).
+
+\begin{equation}
+\begin{aligned}
+\rho_{cc}^{(4)} &= -\frac{2|\mu_{ba}|^2 |\mu_{cb}|^2}{\hbar^4 \gamma_c} \times \text{Im} \left\{ \frac{1}{\Delta_2 - i\Gamma_{ca}} \left[ \frac{|\tilde{E}_1|^4}{(\Delta_1 - i\Gamma_{ba})(\Delta_2 - \Delta_1 - i\Gamma_{cb})} \right. \right. \\
+&\quad + \tilde{E}_1^2 \tilde{E}_2^* \tilde{E}_3^* \left( \frac{1}{(\Delta_1 - i\Gamma_{ba})(\Delta_2 + \Delta_3 - 2\Delta_1 - i\Gamma_{cb})} + \frac{1}{(\Delta_1 - i\Gamma_{ba})(\Delta_2 - \Delta_3 - i\Gamma_{cb})} \right) \\
+&\quad + \tilde{E}_1^{*2} \tilde{E}_2 \tilde{E}_3 \left( \frac{1}{(2\Delta_1 - \Delta_3 - i\Gamma_{ba})(\Delta_2 - \Delta_1 - i\Gamma_{cb})} + \frac{1}{(\Delta_3 - i\Gamma_{ba})(\Delta_2 - \Delta_1 - i\Gamma_{cb})} \right) \\
+&\quad + |\tilde{E}_2|^2 |\tilde{E}_3|^2 \left( \frac{1}{(2\Delta_1 - \Delta_3 - i\Gamma_{ba})(\Delta_2 + \Delta_3 - 2\Delta_1 - i\Gamma_{cb})} \right. \\
+&\quad + \frac{1}{(2\Delta_1 - \Delta_3 - i\Gamma_{ba})(\Delta_2 - \Delta_3 - i\Gamma_{cb})} + \frac{1}{(\Delta_3 - i\Gamma_{ba})(\Delta_2 + \Delta_3 - 2\Delta_1 - i\Gamma_{cb})} \\
+&\quad \left. \left. \left. + \frac{1}{(\Delta_3 - i\Gamma_{ba})(\Delta_2 - \Delta_3 - i\Gamma_{cb})} \right) \right] \right\}
+\end{aligned} \tag{5}
+\end{equation}
+
+El término $\gamma_c$ representa la tasa de decaimiento total del nivel superior $c$. Este corresponde a la suma de todas las tasas de decaimiento parciales hacia cualquier nivel de energía inferior $W_i$ disponible: 
+
+\begin{equation}
+    \gamma_c = \sum_{\substack{i \\ W_i < W_c}} \gamma_{ci}
+\end{equation}
+
+Esta cantidad cuantifica la tasa de relajación longitudinal, siendo inversamente proporcional al tiempo de vida medio del estado excitado, actúa como un factor de amortiguamiento, que determina el límite físico de cuántos átomos pueden acumularse efectivamente en el estado excitado.
+
+\newpage
+\section{Anexo: Graficos de las poblaciones de la Matriz de Densidad}
 
 \end{document}
