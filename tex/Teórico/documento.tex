@@ -19,9 +19,9 @@
 
 \maketitle
 
-\begin{abstract}
-Este documento presenta una revisión preliminar de los conceptos transversales del Mezclado de Cuatro Ondas (FWM) en medios atómicos, con un énfasis particular en el modelado teórico de la competencia entre este proceso no lineal y la Emisión Espontánea Amplificada (ASE). Se estudian las configuraciones de los niveles de energía, las ecuaciones de matriz de densidad y el fenómeno de interferencia cuántica destructiva que rige la supresión de la población en niveles excitados.
-\end{abstract}
+%\begin{abstract}
+%Este documento presenta una revisión preliminar de los conceptos transversales del Mezclado de Cuatro Ondas (FWM) en medios atómicos, con un énfasis particular en el modelado teórico de la competencia entre este proceso no lineal y la Emisión Espontánea Amplificada (ASE). Se estudian las configuraciones de los niveles de energía, las ecuaciones de matriz de densidad y el fenómeno de interferencia cuántica destructiva que rige la supresión de la población en niveles excitados.
+%\end{abstract}
 
 \section{Introducción al Mezclado de Cuatro Ondas (FWM)}
 El Mezclado de Cuatro Ondas (FWM, por sus siglas en inglés) es un proceso óptico no lineal de tercer orden en el cual tres campos electromagnéticos interactúan dentro de un medio no lineal para generar un cuarto campo. Este fenómeno está regido por la susceptibilidad no lineal de tercer orden del medio $\chi^{(3)}$ y requiere el cumplimiento simultáneo de la conservación de la energía y del momento (condición de ajuste de fase o \textit{phase-matching}) \cite{Becerra2008}.
@@ -39,21 +39,20 @@ debería ser el proceso dominante de forma abrumadora en el medio. Sin embargo, 
 experimentales muestran que el proceso de FWM es capaz de suprimir por completo la aparición de
 la ASE.
 
-El análisis teórico que realiza Boyd et al. (1987) muestra que la clave de esta supresión 
-radica en la dinámica de la coherencia de segundo orden $\rho_{ca}^{(2)}$, la cual acopla 
-el estado fundamental con el nivel superior excitado. Físicamente, esta coherencia no 
-es impulsada de manera exclusiva por el láser de bombeo aplicado a través de una 
-transición directa de dos fotones. A medida que la luz interactúa con el medio,
-los propios campos electromagnéticos generados internamente por el proceso de 
-FWM establecen un segundo camino de excitación simultáneo. 
+Para comprender por qué surge esta supresión, es necesario recurrir a la solución perturbativa de las ecuaciones de la matriz de densidad, cuyas expresiones analíticas se detallan en el Anexo \ref{density_matrix}. El formalismo de la matriz de densidad permite aislar el comportamiento de las coherencias inducidas por los campos ópticos y calcular la transferencia fraccional hacia los distintos niveles de energía. El análisis de estos elementos revela que los campos electromagnéticos generados por el propio proceso de FWM crean un camino de excitación cuántica secundario que conecta el estado fundamental con el nivel excitado de dos fotones.
 
-La existencia de estas dos vías paralelas tiene consecuencias profundas en la población final del nivel excitado $\rho_{cc}^{(4)}$, puesto que esta depende matemáticamente del módulo al cuadrado de la coherencia total. Al elevar al cuadrado la suma de ambos caminos (el láser aplicado y los campos del FWM), surge de forma explícita un término cruzado de interferencia cuántica. Es en este punto donde la propagación macroscópica se vuelve fundamental: guiadas por el acoplamiento de fase y las ecuaciones de amplitud acopladas de Maxwell, las fases relativas de los campos evolucionan a lo largo del medio de tal manera que este término de interferencia se vuelve perfectamente negativo \cite{Boyd1987}.
+La conclusión central del trabajo de Boyd y sus colaboradores establece que estos múltiples caminos de excitación sufren una interferencia destructiva. A medida que los campos paramétricos del FWM se propagan y crecen en el medio de acuerdo con las condiciones de acoplamiento de fase, el término de interferencia cruzada entre el láser de bombeo aplicado y los campos generados cancela la amplitud de probabilidad neta de la transición atómica.
 
-Como resultado directo de esta evolución espacial, se produce una interferencia destructiva perfecta que cancela la coherencia neta del sistema, anulando así la transferencia de población hacia el nivel superior. Al bloquearse el ascenso de los átomos hacia el estado excitado, se imposibilita la creación de cualquier inversión de población. En consecuencia, al carecer de átomos disponibles en el nivel superior, el mecanismo físico primario que da origen a la ASE queda totalmente suprimido.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.85\linewidth]{rhocc.png}
+    \caption{Evolución espacial de la población del nivel excitado $\rho_{cc}^{(4)}$ y de las intensidades normalizadas de los campos ópticos en función de la distancia de propagación $z$. Los cuatro paneles ilustran la dinámica del sistema ante diferentes condiciones del desacople de fase $\Delta k$ y la desintonía de dos fotones $\Delta_2$. En el panel (a), bajo condiciones de acoplamiento de fase perfecto ($\Delta k = 0$) y resonancia exacta ($\Delta_2 = 0$), se observa cómo la población $\rho_{cc}^{(4)}$ se anula a medida que los campos se propagan a través del medio. Los paneles (b) y (c) demuestran que, al introducir un error en el acoplamiento de fase, la interferencia pierde efectividad. El panel (d) muestra que el acoplamiento de fase perfecto es capaz de anular la población incluso fuera de resonancia exacta. Imagen modificada de \cite{Boyd1987}.}
+    \label{rhocc}
+\end{figure}
 
-La coherencia de segundo orden $\rho_{ca}^{(2)}$ entre el estado fundamental y el nivel superior excitado no solo es impulsada por el láser de bombeo aplicado (transición directa de dos fotones), sino también por los campos internamente generados por el propio proceso de FWM.
-La ecuación que describe la población del nivel superior ($\rho_{cc}^{(4)}$) depende del módulo al cuadrado de esta coherencia. Los dos caminos de excitación (el láser aplicado y los campos del FWM) producen una interferencia matemáticamente explícita (término cruzado). Bajo condiciones macroscópicas y acoplamiento de fase adecuado dictado por las ecuaciones de amplitud acopladas (Maxwell), las fases relativas de los campos evolucionan de manera que este término de interferencia se vuelve perfectamente negativo \cite{Boyd1987}.
-Esta interferencia destructiva cancela la coherencia y anula la transferencia de población al nivel superior. Sin átomos en el estado excitado, no puede existir inversión de población y, por tanto, se suprime por completo el mecanismo que origina la ASE.
+Esta interferencia destructiva conduce a un estado estacionario donde la población del nivel superior excitado $\rho_{cc}$, desciende exactamente a cero, tal como se puede observar en la Figura \ref{rhocc}. La relación entre esta falta de población y el dominio del FWM radica en los requisitos fundamentales de cada fenómeno. La Emisión Espontánea Amplificada es un proceso que requiere intrínsecamente que exista una gran cantidad de átomos físicamente excitados en el nivel superior para iniciar el decaimiento radiativo y la posterior amplificación en cascada. 
+
+Al anularse la transferencia de población hacia dicho nivel debido a la interferencia, el medio atómico queda sin la fuente material de fotones espontáneos, bloqueando de raíz el mecanismo de la ASE. Por el contrario, el FWM es un proceso impulsado por las coherencias atómicas, no por la permanencia física de los electrones en el estado superior. Al suprimirse la absorción real de energía hacia el nivel excitado, el sistema canaliza la energía incidente a través de la polarización macroscópica, favoreciendo exclusivamente la generación de los campos del FWM.
 
 \bibliographystyle{unsrt}
 \bibliography{referencias_fwm}
@@ -61,6 +60,7 @@ Esta interferencia destructiva cancela la coherencia y anula la transferencia de
 \newpage
 \appendix
 \section{Anexo: Soluciones Perturbativas de la Matriz de Densidad}
+\label{density_matrix}
 
 En este anexo se presentan las expresiones analíticas detalladas por Boyd et al. (1987) para los elementos de la matriz de densidad, calculadas mediante la teoría de perturbaciones. Estas ecuaciones describen la evolución de un sistema atómico de tres niveles bajo la aproximación de onda rotatoria (RWA) y asumiendo un estado estacionario.
 
@@ -171,7 +171,5 @@ El término $\gamma_c$ representa la tasa de decaimiento total del nivel superio
 
 Esta cantidad cuantifica la tasa de relajación longitudinal, siendo inversamente proporcional al tiempo de vida medio del estado excitado, actúa como un factor de amortiguamiento, que determina el límite físico de cuántos átomos pueden acumularse efectivamente en el estado excitado.
 
-\newpage
-\section{Anexo: Graficos de las poblaciones de la Matriz de Densidad}
 
 \end{document}
