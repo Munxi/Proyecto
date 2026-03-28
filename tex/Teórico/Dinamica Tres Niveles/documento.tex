@@ -13,7 +13,7 @@
 \captionsetup{font=footnotesize}
 \geometry{a4paper, margin=2.5cm}
 
-\title{Dinámica de Tres Niveles con TPA}
+\title{Dinámica de Tres Niveles}
 \author{Mateo Rubio Hernández}
 \date{\today}
 
@@ -162,5 +162,77 @@ Reemplazando en el \textit{ansatz}:
 \end{aligned} 
 \end{equation}
 
+\section{Tercer Orden Perturbativo}
+
+La derivación de la coherencia de tercer orden $\rho_{cb}^{(3)}$ se obtiene al utilizar la coherencia de segundo orden $\rho_{ca}^{(2)}$ calculada previamente como el término fuente que impulsa esta nueva perturbación. Este paso describe físicamente una transición descendente estimulada desde el nivel superior $c$ hacia el estado intermedio $b$.
+
+Se parte de la ecuación de evolución para el elemento de la matriz de densidad correspondiente a la transición $c \to b$:
+\begin{equation}
+\dot{\rho}_{cb}^{(3)} = -(i\omega_{cb} + \Gamma_{cb})\rho_{cb}^{(3)} + \frac{i}{\hbar} \sum_i (\mu_{ci}\rho_{ib}^{(2)} - \mu_{ib}\rho_{ci}^{(2)})E(t)
+\end{equation}
+
+Para evaluar el conmutador de la interacción, se debe analizar qué elementos de segundo orden no son nulos. El único camino cuántico poblado en el segundo orden de perturbación que conecta estos estados es la coherencia $\rho_{ca}^{(2)}$. Por lo tanto, en la sumatoria el único índice que sobrevive es $i=a$.
+
+Dado que la transición directa de dos fotones entre los estados $c$ y $a$ está prohibida por las reglas de selección dipolares ($\mu_{ca} = 0$), el primer término del paréntesis se anula. El término restante es $-\mu_{ab}\rho_{ca}^{(2)}$. Expresando el momento dipolar conjugado como $\mu_{ab} = \mu_{ba}^*$, la ecuación diferencial se simplifica a la interacción directa con el campo externo:
+\begin{equation}
+\dot{\rho}_{cb}^{(3)} = -(i\omega_{cb} + \Gamma_{cb})\rho_{cb}^{(3)} - \frac{i}{\hbar} \mu_{ba}^* \rho_{ca}^{(2)} E(t)
+\end{equation}
+
+
+
+Al representar una transición descendente (emisión estimulada acoplada a la polarización), el sistema extrae energía del campo macroscópico oscilando en la dirección opuesta a la absorción. Matemáticamente, bajo la Aproximación de la Onda Rotante, esto significa que la coherencia interactúa con las componentes de frecuencia negativa (complejas conjugadas) del campo electromagnético total:
+\begin{equation}
+E^*(t) = \tilde{E}_1^* e^{i\omega_1 t} + \tilde{E}_2^* e^{i\omega_2 t} + \tilde{E}_3^* e^{i\omega_3 t}
+\end{equation}
+
+La coherencia de segundo orden $\rho_{ca}^{(2)}$ posee un coeficiente global $\frac{\mu_{cb}\mu_{ba}}{\hbar^2}$. Al multiplicar este coeficiente por el término $-\frac{i}{\hbar}\mu_{ba}^*$ de la ecuación diferencial, se obtiene de forma exacta el factor común externo de la ecuación final:
+\begin{equation}
+-\frac{i}{\hbar} \mu_{ba}^* \left( \frac{\mu_{cb}\mu_{ba}}{\hbar^2} \right) = -\frac{i}{\hbar^3} |\mu_{ba}|^2 \mu_{cb}
+\end{equation}
+
+El núcleo de la derivación radica en realizar el producto cruzado entre los $3$ términos contenidos en los corchetes de $\rho_{ca}^{(2)}$ y las $3$ componentes del campo conjugado $E^*(t)$. Este producto genera $3 \times 3 = 9$ términos impulsores individuales, lo que explica la estructura expandida de la ecuación (4a).
+
+A modo de demostración algebraica, se evalúa el primer término de $\rho_{ca}^{(2)}$, el cual es proporcional a $\tilde{E}_1^2 e^{-i2\omega_1 t}$, al interactuar con el primer componente del campo $\tilde{E}_1^* e^{i\omega_1 t}$:
+\begin{equation}
+\left( \frac{\tilde{E}_1^2 e^{-i2\omega_1 t}}{(\Delta_1 - i\Gamma_{ba})(\Delta_2 - i\Gamma_{ca})} \right) \tilde{E}_1^* e^{i\omega_1 t} = \frac{|\tilde{E}_1|^2 \tilde{E}_1 e^{-i\omega_1 t}}{(\Delta_1 - i\Gamma_{ba})(\Delta_2 - i\Gamma_{ca})}
+\end{equation}
+
+Este término oscila a una frecuencia neta de $\omega_1$. Se propone entonces un \textit{ansatz} de la forma $C_1 e^{-i\omega_1 t}$ para esta fracción de $\rho_{cb}^{(3)}$. Al sustituirlo en la ecuación diferencial y agrupar:
+\begin{equation}
+-i\omega_1 C_1 e^{-i\omega_1 t} = -(i\omega_{cb} + \Gamma_{cb}) C_1 e^{-i\omega_1 t} - \frac{i}{\hbar^3} |\mu_{ba}|^2 \mu_{cb} \frac{|\tilde{E}_1|^2 \tilde{E}_1 e^{-i\omega_1 t}}{(\Delta_1 - i\Gamma_{ba})(\Delta_2 - i\Gamma_{ca})}
+\end{equation}
+\begin{equation}
+i(\omega_{cb} - \omega_1 - i\Gamma_{cb}) C_1 = - \frac{i}{\hbar^3} |\mu_{ba}|^2 \mu_{cb} \frac{|\tilde{E}_1|^2 \tilde{E}_1}{(\Delta_1 - i\Gamma_{ba})(\Delta_2 - i\Gamma_{ca})}
+\end{equation}
+
+Para alinear el denominador con las variables de desintonía del sistema, se expresa la resta de frecuencias $\omega_{cb} - \omega_1$ en función de $\Delta_1$ y $\Delta_2$. Sabiendo que $\omega_{cb} = \omega_{ca} - \omega_{ba}$:
+\begin{equation}
+\omega_{cb} - \omega_1 = \omega_{ca} - \omega_{ba} - \omega_1
+\end{equation}
+Sumando y restando $\omega_1$:
+\begin{equation}
+\omega_{ca} - 2\omega_1 - \omega_{ba} + \omega_1 = (\omega_{ca} - 2\omega_1) - (\omega_{ba} - \omega_1)
+\end{equation}
+Insertando las definiciones $\Delta_2 = \omega_{ca} - 2\omega_1$ y $\Delta_1 = \omega_{ba} - \omega_1$, se demuestra que el término de resonancia efectivo es:
+\begin{equation}
+\omega_{cb} - \omega_1 = \Delta_2 - \Delta_1
+\end{equation}
+Lo que genera el nuevo denominador $(\Delta_2 - \Delta_1 - i\Gamma_{cb})$ en el primer término de la ecuación.
+
+
+
+Al multiplicar este mismo primer término de $\rho_{ca}^{(2)}$ por la segunda componente del campo conjugado, $\tilde{E}_2^* e^{i\omega_2 t}$, la frecuencia de oscilación resultante es $2\omega_1 - \omega_2$. Por conservación de energía en el mezclado de cuatro ondas ($2\omega_1 = \omega_2 + \omega_3$), esta frecuencia se reduce exactamente a $\omega_3$, generando el término numerador $\tilde{E}_1^2 \tilde{E}_2^* e^{-i\omega_3 t}$.
+
+El denominador de frecuencia asociado se resuelve aislando $\omega_{cb} - \omega_3$:
+\begin{equation}
+\omega_{cb} - \omega_3 = \omega_{ca} - \omega_{ba} - \omega_3
+\end{equation}
+Para expresarlo estrictamente en $\Delta_1, \Delta_2, \Delta_3$, se construye la combinación $\Delta_2 + \Delta_3 - 2\Delta_1$:
+\begin{equation}
+(\omega_{ca} - 2\omega_1) + (\omega_{ba} - \omega_3) - 2(\omega_{ba} - \omega_1) = \omega_{ca} - \omega_{ba} - \omega_3
+\end{equation}
+Confirmando matemáticamente la estructura del segundo denominador de la ecuación general $(\Delta_2 + \Delta_3 - 2\Delta_1 - i\Gamma_{cb})$.
+
+El procedimiento de factor constante extraído como $\frac{1}{\Delta_2 - i\Gamma_{ca}}$, combinado con la resolución algebraica de las $9$ diferencias de fase para cada producto cruzado de los campos paramétricos y la coherencia de dos fotones, conforma la totalidad de la expresión de la matriz de densidad para $\rho_{cb}^{(3)}$.
 
 \end{document}
