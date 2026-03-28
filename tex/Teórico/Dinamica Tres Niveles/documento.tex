@@ -1,0 +1,105 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage[hidelinks]{hyperref}
+\usepackage{geometry}
+\usepackage{caption}
+\captionsetup{font=footnotesize}
+\geometry{a4paper, margin=2.5cm}
+
+\title{Dinámica de Tres Niveles con TPA}
+\author{Mateo Rubio Hernández}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+Boyd establece que la respuesta atómica esta dada por las siguientes ecuaciones:
+
+\begin{equation}
+\dot{\rho}_{ll} = -\sum_{\substack{i \\ (W_i < W_l)}} \gamma_{li}\rho_{ll} + \sum_{\substack{i \\ (W_i > W_l)}} \gamma_{il}\rho_{ii} + \frac{i}{\hbar} \sum_{i} (\mu_{li}\rho_{il} - \mu_{il}\rho_{li})E(t) 
+\end{equation}
+
+\begin{equation}
+\dot{\rho}_{lm} = -(i\omega_{lm} + \Gamma_{lm})\rho_{lm} + \frac{i}{\hbar} \sum_{i} (\mu_{li}\rho_{im} - \mu_{im}\rho_{li})E(t) \quad (l \neq m) 
+\end{equation}
+
+Donde $W_i$ es el nivel de energía del estado $i$. Luego los elementos de la matriz de densidad se pueden expandir en términos perturbativos de la siguiente forma:
+
+\begin{equation}
+\rho_{lm} = \rho_{lm}^{(0)} + \rho_{lm}^{(1)} + \rho_{lm}^{(2)} + \rho_{lm}^{(3)} + \cdots 
+\end{equation}
+
+También se asume que $\rho_{aa}^{(0)} = 1$ y $\rho_{lm}^{(0)} = 0$ para cualquier $l \neq m$ y para $l = m \neq a$. De aquí Boyd menciona que las contribuciones que dejará son aquellas que se mantengan en la aproximación de la onda rotante.
+
+%%% Lo que hizo Gemini
+
+Para el primer orden perturbativo $\rho_{ba}^{(1)}$, se tiene que:
+\begin{equation}
+\dot{\rho}_{ba}^{(1)} = -(i\omega_{ba} + \Gamma_{ba})\rho_{ba}^{(1)} + \frac{i}{\hbar} \sum_{i} (\mu_{bi}\rho_{ia}^{(0)} - \mu_{ia}\rho_{bi}^{(0)})E(t)
+\end{equation}
+
+El primer paso consiste en aplicar las condiciones iniciales de orden cero. Se asume que toda la población atómica reposa en el estado fundamental, lo que significa que el único elemento no nulo es $\rho_{aa}^{(0)} = 1$. Al evaluar la sumatoria sobre todos los posibles niveles $i$, el segundo término del paréntesis se anula completamente porque $\rho_{bi}^{(0)} = 0$. En el primer término, el único elemento sobreviviente ocurre cuando $i=a$, resultando en $\mu_{ba}\rho_{aa}^{(0)} = \mu_{ba}$. La ecuación diferencial ordinaria se simplifica a:
+\begin{equation}
+\dot{\rho}_{ba}^{(1)} = -(i\omega_{ba} + \Gamma_{ba})\rho_{ba}^{(1)} + \frac{i}{\hbar} \mu_{ba} E(t)
+\end{equation}
+
+
+
+Para la interacción electromagnética, el campo total $E(t)$ está compuesto por la superposición de las tres ondas presentes en el proceso paramétrico ($\omega_1$, $\omega_2$, $\omega_3$). Aplicando la Aproximación de la Onda Rotante (RWA), se desprecian las componentes contra-rotantes $e^{+i\omega_j t}$ debido a su oscilación fuertemente desintonizada, conservando únicamente las partes excitadoras que inducen la absorción de energía:
+\begin{equation}
+E(t) \approx \tilde{E}_1 e^{-i\omega_1 t} + \tilde{E}_2 e^{-i\omega_2 t} + \tilde{E}_3 e^{-i\omega_3 t}
+\end{equation}
+
+Dado que se trata de una ecuación diferencial lineal impulsada por sumas de términos armónicos, se propone como solución de estado estacionario un \textit{ansatz} (solución de prueba) que oscile exactamente a las frecuencias de las perturbaciones externas:
+\begin{equation}
+\rho_{ba}^{(1)} = A_1 e^{-i\omega_1 t} + A_2 e^{-i\omega_2 t} + A_3 e^{-i\omega_3 t}
+\end{equation}
+
+Al tomar la derivada temporal de este \textit{ansatz} ($\dot{\rho}_{ba}^{(1)}$), sustituirlo junto con $E(t)$ en la ecuación diferencial simplificada, y factorizar agrupando los términos que oscilan a la misma frecuencia $e^{-i\omega_j t}$, el problema diferencial se transforma en un sistema de ecuaciones algebraicas independientes para determinar cada coeficiente $A_j$.
+
+Resolviendo para la componente impulsada por la frecuencia $\omega_1$:
+\begin{equation}
+-i\omega_1 A_1 e^{-i\omega_1 t} = -(i\omega_{ba} + \Gamma_{ba}) A_1 e^{-i\omega_1 t} + \frac{i}{\hbar}\mu_{ba}\tilde{E}_1 e^{-i\omega_1 t}
+\end{equation}
+\begin{equation}
+i(\omega_{ba} - \omega_1 - i\Gamma_{ba})A_1 = \frac{i}{\hbar}\mu_{ba}\tilde{E}_1
+\end{equation}
+
+Introduciendo la definición de desintonía de un fotón, donde $\Delta_1 = \omega_{ba} - \omega_1$, se despeja la amplitud $A_1$:
+\begin{equation}
+A_1 = \frac{\mu_{ba}}{\hbar} \frac{\tilde{E}_1}{\Delta_1 - i\Gamma_{ba}}
+\end{equation}
+
+Aplicando el mismo álgebra para la onda de frecuencia $\omega_3$, se utiliza su desintonía análoga $\Delta_3 = \omega_{ba} - \omega_3$ para encontrar la segunda amplitud:
+\begin{equation}
+A_3 = \frac{\mu_{ba}}{\hbar} \frac{\tilde{E}_3}{\Delta_3 - i\Gamma_{ba}}
+\end{equation}
+
+
+
+Para el campo generado internamente a la frecuencia $\omega_2$, la derivación requiere incorporar la condición de conservación de energía intrínseca del Mezclado de Cuatro Ondas paramétrico, la cual impone que $2\omega_1 = \omega_2 + \omega_3$. Al despejar $\omega_2 = 2\omega_1 - \omega_3$ y sustituirlo en la desintonía natural del denominador de la amplitud $A_2$, se obtiene $\omega_{ba} - \omega_2 = \omega_{ba} - (2\omega_1 - \omega_3)$. 
+
+Para expresar este resultado estrictamente en función de las desintonías $\Delta_1$ y $\Delta_3$ ya establecidas en el artículo, se introduce y se resta el término $\omega_{ba}$:
+\begin{equation}
+\omega_{ba} - 2\omega_1 + \omega_3 = 2\omega_{ba} - 2\omega_1 - \omega_{ba} + \omega_3 = 2(\omega_{ba} - \omega_1) - (\omega_{ba} - \omega_3) = 2\Delta_1 - \Delta_3
+\end{equation}
+
+Esto demuestra algebraicamente que el coeficiente $A_2$ resulta en:
+\begin{equation}
+A_2 = \frac{\mu_{ba}}{\hbar} \frac{\tilde{E}_2}{2\Delta_1 - \Delta_3 - i\Gamma_{ba}}
+\end{equation}
+
+Sustituyendo los tres coeficientes resueltos $A_1$, $A_2$ y $A_3$ en el \textit{ansatz} original y factorizando el término común de acoplamiento, se recupera exactamente la expresión final de la ecuación:
+\begin{equation}
+\rho_{ba}^{(1)} = \frac{\mu_{ba}}{\hbar} \left[ \frac{\tilde{E}_1 e^{-i\omega_1 t}}{\Delta_1 - i\Gamma_{ba}} + \frac{\tilde{E}_2 e^{-i\omega_2 t}}{2\Delta_1 - \Delta_3 - i\Gamma_{ba}} + \frac{\tilde{E}_3 e^{-i\omega_3 t}}{\Delta_3 - i\Gamma_{ba}} \right]
+\end{equation}
+ 
+\end{document}
