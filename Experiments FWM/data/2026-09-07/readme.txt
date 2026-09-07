@@ -1,0 +1,1 @@
+lambda794-potencia794-potencia822-Temperatura-corrientePMT-aperturaSlave-lambda852-FiltrosND
